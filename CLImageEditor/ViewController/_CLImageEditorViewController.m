@@ -576,6 +576,10 @@
         item.leftBarButtonItem  = [[UIBarButtonItem alloc] initWithTitle:[CLImageEditorTheme localizedString:@"CLImageEditor_BackBtnTitle" withDefault:@"Back"] style:UIBarButtonItemStylePlain target:self action:@selector(pushedCancelBtn:)];
         
         [_navigationBar pushNavigationItem:item animated:(self.navigationController==nil)];
+        
+        CGRect frame = _navigationBar.frame;
+        frame.size.width = CGRectGetWidth(self.view.frame);
+        [_navigationBar setFrame:frame];
     }
     else{
         [_navigationBar popNavigationItemAnimated:(self.navigationController==nil)];
